@@ -1,0 +1,14 @@
+* go vpc % more
+* create vpc first 10.0.1.0/24 a/z=1, public s/n=1, privte s/n =0 vpc endpoint=none
+* crete vpc second 10.0.2.0/24 a/z=1, public s/n=0, private s/n=1
+* create instance --first
+            key =(RSA+.pem) use 
+* create instance --secound
+       public ip disable
+* vpc peering connection create + go action and accept request
+* go route table and add route for peering connection 
+* go first instance and connect ssh
+   vi ec2_key.pem (then paste key file)
+   ll
+   chmode 400 ec2-key.pem
+   ssh -i ec2_key.pem ec2_user@(paste here secound instance private ip)
