@@ -1,0 +1,7 @@
+vi ec2_key.pem
+press i button &
+paste key file
+press esc :wq
+chmod 400 ec2_key.pem
+ssh -i ec2_key.pem ec2_user@.......(private instance ip paste here )
+if config
