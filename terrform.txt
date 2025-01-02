@@ -1,0 +1,61 @@
+Usage: terraform [global options] <subcommand> [args]
+
+The available commands for execution are listed below.
+The primary workflow commands are given first, followed by
+less common or more advanced commands.
+
+Main commands:
+  init          Prepare your working directory for other commands
+  validate      Check whether the configuration is valid
+  plan          Show changes required by the current configuration
+  apply         Create or update infrastructure
+  destroy       Destroy previously-created infrastructure
+
+All other commands:
+  console       Try Terraform expressions at an interactive command prompt
+  fmt           Reformat your configuration in the standard style
+  force-unlock  Release a stuck lock on the current workspace
+  get           Install or upgrade remote Terraform modules
+  graph         Generate a Graphviz graph of the steps in an operation
+  import        Associate existing infrastructure with a Terraform resource
+  login         Obtain and save credentials for a remote host
+  logout        Remove locally-stored credentials for a remote host
+  metadata      Metadata related commands
+  modules       Show all declared modules in a working directory
+  output        Show output values from your root module
+  providers     Show the providers required for this configuration
+  refresh       Update the state to match remote systems
+  show          Show the current state or a saved plan
+  state         Advanced state management
+  taint         Mark a resource instance as not fully functional
+  untaint       Remove the 'tainted' state from a resource instance
+  version       Show the current Terraform version
+  workspace     Workspace management
+
+Global options (use these before the subcommand, if any):
+  -chdir=DIR    Switch to a different working directory before executing the
+                given subcommand.
+  -help         Show this help output, or the help for a specified subcommand.
+  -version      An alias for the "version" subcommand.
+
+Switching working directory with -chdir
+The usual way to run Terraform is to first switch to the directory containing the .tf files for your root module (for example, using the cd command), so that Terraform will find those files automatically without any extra arguments.
+
+In some cases though — particularly when wrapping Terraform in automation scripts — it can be convenient to run Terraform from a different directory than the root module directory. To allow that, Terraform supports a global option -chdir=... which you can include before the name of the subcommand you intend to run:
+
+terraform -chdir=environments/production apply
+
+Shell Tab-completion
+If you use either bash or zsh as your command shell, Terraform can provide tab-completion support for all command names and some command arguments.
+
+To add the necessary commands to your shell profile, run the following command:
+
+terraform -install-autocomplete
+
+
+To uninstall the completion hook, assuming that it has not been modified manually in the shell profile, run the following command:
+
+terraform -uninstall-autocomplete
+
+
+
